@@ -1,2 +1,32 @@
-  #Run command to install java
+  #Run command to download java
   wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm
+#Install
+
+rpm -i jdk-8u131-linux-x64.rpm
+
+If multiple versions are available then run command:
+and select the available number
+sudo /usr/sbin/alternatives --config java
+# check java compiler version
+javac -version
+
+
+###############################
+
+Check available packages on server
+sudo yum list | grep openjdk
+and install
+yum install <package name>
+############################
+
+Add java home path in .profile
+
+#To CHeck path
+file $(which java)
+Output :  /usr/bin/java: symbolic link to /etc/alternatives/java
+it will give path where jdk is installed
+#RUN
+file /etc/alternatives/java
+It will give this path , add it in .profile
+/etc/alternatives/java: symbolic link to /usr/java/jdk1.8.0_131/jre/bin/java
+#Run source .bash_profile to execute .profile
