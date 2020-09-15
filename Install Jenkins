@@ -1,0 +1,13 @@
+#Download
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo
+#IMPORT KEY FILE
+sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
+#INSTALL
+sudo yum install jenkins
+#Start service
+sudo service jenkins start
+# hit url with port 8080, it will ask admin password
+password is available here /var/lib/jenkins/secrets, file initialAdminPassword
+
+# IF default port wants to be  changed
+go to file /etc/sysconfig/jenkins and update the port number
