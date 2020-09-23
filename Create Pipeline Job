@@ -1,0 +1,14 @@
+#Add Pipeline plugin
+# Write script, save and build
+
+pipeline {
+    agent any
+    stages {
+        stage("hello"){
+            steps{
+                echo "I have created one decalarative script"
+            }
+        }
+    }
+    
+}
