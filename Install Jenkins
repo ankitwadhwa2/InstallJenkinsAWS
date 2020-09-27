@@ -11,3 +11,17 @@ password is available here /var/lib/jenkins/secrets, file initialAdminPassword
 
 # IF default port wants to be  changed
 go to file /etc/sysconfig/jenkins and update the port number
+
+# Install GIT on local
+sudo yum install git-all
+#To check Run
+git --version
+
+#Install MAVEN on LOCAL
+#Download file
+sudo wget https://apachemirror.sg.wuchna.com/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip
+#Go to directory where file is donloaded
+unzip <file name>
+ADD path in .bash_profle (Java path should be upto jdk directory)
+# To cehck
+mvn -v
