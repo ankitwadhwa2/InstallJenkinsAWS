@@ -1,0 +1,8 @@
+#Download Tomcat
+wget https://apachemirror.sg.wuchna.com/tomcat/tomcat-8/v8.5.58/bin/apache-tomcat-8.5.58.tar.gz
+#UNTAR folder and move to /usr/local
+#START Tomcatin bin directory run command
+./catalina.sh start #Tomcat runs on port 8080 by default (if port is not open on aws , open it)
+move .war file in webapps directory in tomcat folder and execute the url 
+
+ 
