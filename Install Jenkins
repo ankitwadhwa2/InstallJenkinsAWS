@@ -34,3 +34,8 @@ Select post build actions - Deploy WAAR/EAR on container
 Mention **/*.war or full path where you want to place war file.
 # Build the project, it will create war file and copy it on WEBserver in tomcat webapps directory.
  
+$######
+# Create Webhook URL
+
+On Git repository, create webhook as 
+# <Jenkins URL>:<PORT>/github-webhook/
