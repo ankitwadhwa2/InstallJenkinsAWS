@@ -1,0 +1,17 @@
+ # Initialize git in work directory
+ git init
+ create file
+ git add .
+ git commit -m "comment"
+ git status 
+ (latest file should be commited)
+ 
+ #add reporssitory of gthub
+ git remote add origin <URL>
+ # to push code on git
+ git push origin master
+ 
+ # Trouble shooting 
+ git remote --rebase origin master
+ and then
+ create files again in directory and do the above process	
