@@ -25,3 +25,12 @@ unzip <file name>
 ADD path in .bash_profle (Java path should be upto jdk directory)
 # To cehck
 mvn -v
+#############################################
+
+### Deploy WAR file on another WEB server
+Install deploy to container plugin on jnkins 
+Add credentials, which are mentioned in tomcat-users.xml file 
+Select post build actions - Deploy WAAR/EAR on container
+Mention **/*.war or full path where you want to place war file.
+# Build the project, it will create war file and copy it on WEBserver in tomcat webapps directory.
+ 
