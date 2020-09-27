@@ -12,3 +12,27 @@ change port in this file
 
 for example :
 <Connector port="8080" protocol="HTTP/1.1"
+
+### While working on AWS , the manage app optiion will not work because we will open our browser on local 
+### Comment Meta data in cotext.xml
+1. /usr/local/tomcat/webapps/manager/META-INF/context.xml
+e.g.
+<!--  <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->
+2. /usr/local/tomcat/webapps/host-manager/META-INF/context.xml
+<!--  <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->
+         
+Then Restart Tomcat
+After rrestart , it will ask user and password
+
+#####ADD user and password with different roles
+
+Add below roles in between tomcat users in file /usr/local/tomcat/conf/tomcat-users.xml and we can login with given id and password.
+        <role rolename="manager-gui"/>
+        <role rolename="manager-script"/>
+        <role rolename="manager-jmx"/>
+        <role rolename="manager-status"/>
+        <user username="admin" password="admin" roles="manager-gui, manager-script, manager-jmx, manager-status"/>
+        <user username="deployer" password="deployer" roles="manager-script"/>
+        <user username="tomcat" password="s3cret" roles="manager-gui"/>
