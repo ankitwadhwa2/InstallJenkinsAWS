@@ -12,6 +12,10 @@
  git push origin master
  
  # Trouble shooting 
- git remote --rebase origin master
+ git remote --rebase origin master (it doent work sometimes)
  and then
  create files again in directory and do the above process	
+
+To resolve error of unrelated histories
+
+git pull origin master --allow-unrelated-histories
