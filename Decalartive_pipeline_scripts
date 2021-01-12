@@ -1,0 +1,90 @@
+simple decalrative script
+------------------------
+pipeline {
+    agent any
+    stages {
+        stage("hello"){
+            steps{
+                echo "Welcome to declaative scripted pipeline"
+            }
+        }
+        
+            
+    }
+}
+
+
+--------------------------
+
+Clone git repository in jenkins
+----------
+
+Create git snippet and add it  in pipeline script
+
+pipeline {
+    agent any
+    stages {
+        stage("git"){
+            steps{
+                git 'https://github.com/ankitwadhwa2/jenkinsstudy.git'
+            }
+        }
+        
+            
+    }
+}
+-----------------------------
+
+Clone and build
+-----------
+
+pipeline {
+    agent any
+    environment {
+        PATH= "/opt/apache-maven-3.6.3/bin/:$PATH"
+    }
+    stages {
+        stage("git"){
+            steps{
+                git 'https://github.com/ankitwadhwa2/jenkinsstudy.git'
+            }
+        }
+        
+        stage("build"){
+            steps{
+                sh "mvn clean install"
+            }
+        }    
+    }
+}
+
+-------------------------------
+
+pipeline {
+    agent any
+    environment {
+        PATH= "/opt/apache-maven-3.6.3/bin/:$PATH"
+    }
+    stages {
+        stage("git"){
+            steps{
+                git 'https://github.com/ankitwadhwa2/jenkinsstudy.git'
+            }
+        }
+        
+        stage("build"){
+            steps{
+                sh "mvn clean install"
+            }
+        }
+        
+        stage("copy"){
+            steps{
+                sshagent(['ssh_credentials']) {
+                sh "scp -o StrictHostKeyChecking=no webapp/target/webapp.war ec2-user@13.58.123.42:/opt/apache-tomcat-9.0.41/webapps/"
+}
+
+            }
+        }
+    }
+}
