@@ -1,0 +1,59 @@
+Maven Setup:
+
+------------
+Install maven
+
+#set path in .bash_profle
+
+[ec2-user@ip-172-31-8-44 ~]$ cat .bash_profile
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+
+# User specific environment and startup programs
+M2_HOME=/opt/apache-maven-3.6.3
+M2=$M2_HOME/bin
+JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.272.b10-1.amzn2.0.1.x86_64/jre/bin/java
+PATH=$PATH:$HOME/.local/bin:$HOME/bin:$JAVA_HOME:$M2_HOME:$M2
+
+export PATH
+[ec2-user@ip-172-31-8-44 ~]$
+
+---------
+#Add Maven Invoker plugin ang Git Plugins
+--------
+# Add JDK path in Global Tool Config (Till jdk directory : /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.272.b10-1.amzn2.0.1.x86_64)
+----
+# Add Maven path
+----
+----------------------------------------------------------------
+
+Create Maven Project job on jenkins
+
+select source as git
+
+Check pom.xml is available in repository and select it 
+
+write clean install
+
+save and build
+----------------------------------------------------
+
+----------------------------------------------------------------------------------------------
+
+Deploy file webapp.war on tomcat server
+
+#Add SSH agent plugin
+#in pipeline syntax generate ssh agent and key script by adding user and public key
+
+for example:
+
+sshagent(['ssh_credentials']) {
+    // some block
+}
+
+# Now add it in pipeline script
+
